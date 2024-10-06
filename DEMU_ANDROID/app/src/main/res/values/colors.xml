@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="error">#ff0000</color>
+    <color name="main">#1B69FF</color>
+    <color name="text">#1F262C</color>
+    <color name="textField">#98A4AF</color>
 </resources>
