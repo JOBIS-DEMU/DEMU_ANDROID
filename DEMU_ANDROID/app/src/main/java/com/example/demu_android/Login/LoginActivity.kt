@@ -1,23 +1,17 @@
-    package com.example.demu_android
+package com.example.demu_android.Login
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.demu_android.R
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-
-
-    }
-
-    override fun onClick(v: View?) {
+        setContentView(R.layout.activity_login)
 
     }
 }

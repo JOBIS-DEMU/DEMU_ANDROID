@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DEMU_ANDROID</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="join"><u>회원가입하기</u></string>
 </resources>
