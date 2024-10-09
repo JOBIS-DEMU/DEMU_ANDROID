@@ -13,12 +13,8 @@
         android:theme="@style/Theme.DEMU_ANDROID"
         tools:targetApi="31" >
         <activity
-            android:name=".Login..LoginActivity"
+            android:name=".Login.LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
         <activity
             android:name=".SplashActivity"
             android:exported="false" />
