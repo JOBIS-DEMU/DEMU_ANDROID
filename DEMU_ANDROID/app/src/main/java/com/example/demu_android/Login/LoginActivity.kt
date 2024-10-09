@@ -1,10 +1,12 @@
 package com.example.demu_android.Login
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -13,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import com.example.demu_android.R
 import com.example.demu_android.databinding.ActivityLoginBinding
+import com.example.demu_android.home.HomeActivity
 import com.example.demu_android.utils.isRegexEmail
 import com.example.demu_android.utils.isRegexPassword
 
@@ -35,7 +38,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
+        val loginToHome = Intent(this, HomeActivity::class.java)
+        when(v?.id) {
+            R.id.btn_login -> {
+                if(flagCheck())
+                    startActivity(loginToHome)
+                else
+                    Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun onEmailListener() {
@@ -55,6 +66,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         else -> {
                             binding.tilEmail.error = null
+                            binding.tilEmail.boxStrokeColor = getResources().getColor(R.color.main)
                             emailFlag = true
                             if (flagCheck())
                                 binding.btnLogin.setBackgroundDrawable(ContextCompat.getDrawable(baseContext,R.drawable.bg_button))
@@ -89,6 +101,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
                             binding.tilPassword.error = null
                             passwordFlag = true
+                            binding.tilEmail.boxStrokeColor = getResources().getColor(R.color.main)
+                            if (flagCheck())
+                                binding.btnLogin.setBackgroundDrawable(ContextCompat.getDrawable(baseContext,R.drawable.bg_button))
+                            else
+                                binding.btnLogin.setBackgroundDrawable(ContextCompat.getDrawable(baseContext,R.drawable.button_color_nocheck))
                         }
                     }
                 }

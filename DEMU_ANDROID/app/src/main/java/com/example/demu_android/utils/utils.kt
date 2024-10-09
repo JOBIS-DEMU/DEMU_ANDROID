@@ -5,6 +5,6 @@ fun isRegexEmail(email: String): Boolean {
 }
 
 fun isRegexPassword(password: String): Boolean {
-    // 8 자 이상
-    return password.matches("\"^.{8,}\$\"".toRegex())
+    // 8~16글자, 대문자 1개, 소문자 1개, 숫자 1개
+    return password.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@\$!%*#?&]{8,16}$".toRegex())
 }
