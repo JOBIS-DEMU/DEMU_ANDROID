@@ -16,6 +16,7 @@ import androidx.core.widget.addTextChangedListener
 import com.example.demu_android.R
 import com.example.demu_android.databinding.ActivityLoginBinding
 import com.example.demu_android.home.HomeActivity
+import com.example.demu_android.signUp.SignUpActivity
 import com.example.demu_android.utils.isRegexEmail
 import com.example.demu_android.utils.isRegexPassword
 
@@ -33,18 +34,24 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener(this)
+        binding.tvBottomSignUp.setOnClickListener(this)
+
         onEmailListener()
         onPasswordListener()
     }
 
     override fun onClick(v: View?) {
         val loginToHome = Intent(this, HomeActivity::class.java)
+        val loginToSignUp = Intent(this, SignUpActivity::class.java)
         when(v?.id) {
             R.id.btn_login -> {
-                if(flagCheck())
+                if (flagCheck())
                     startActivity(loginToHome)
                 else
                     Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
+            }
+            R.id.tv_bottom_sign_up -> {
+                startActivity(loginToSignUp)
             }
         }
     }

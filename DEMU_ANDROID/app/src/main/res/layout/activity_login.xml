@@ -166,6 +166,7 @@
                 android:text="계정이 없다면? " />
 
             <TextView
+                android:id="@+id/tv_bottom_sign_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/main"
