@@ -90,6 +90,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun afterTextChanged(s: Editable?) {
+                binding.tilEmail.boxStrokeColor = getResources().getColor(R.color.black)
                 if (s != null) {
                     when {
                         s.isEmpty() -> {
@@ -101,7 +102,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
                             binding.tilPassword.error = null
                             passwordFlag = true
-                            binding.tilEmail.boxStrokeColor = getResources().getColor(R.color.main)
+                            binding.tilPassword.boxStrokeColor = getResources().getColor(R.color.main)
                             // 이거이름 맞춰서 수정
                             val resource = if(flagCheck()) R.drawable.bg_button else R.drawable.button_color_nocheck
                             binding.btnLogin.setBackgroundDrawable(ContextCompat.getDrawable(baseContext,resource))
