@@ -16,6 +16,7 @@ import com.example.demu_android.R
 import com.example.demu_android.databinding.ActivitySignUpBinding
 import com.example.demu_android.home.HomeActivity
 import com.example.demu_android.utils.isRegexEmail
+import com.example.demu_android.utils.isRegexNickName
 import com.example.demu_android.utils.isRegexPassword
 import kotlin.math.sign
 
@@ -103,9 +104,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                 if (s != null) {
                     when {
                         s.isEmpty() -> {
-                            binding.tieNickName.error = "닉네임을 입력해주세요"
+                            binding.tilNickName.error = "닉네임을 입력해주세요"
                         }
                         // 닉네임이 같을 경우
+                        !isRegexNickName(s.toString()) -> {
+                            binding.tilNickName.error = "닉네임 형식이 맞지 않습니다"
+                        }
                         else -> {
                             binding.tilNickName.error = null
                             binding.tilNickName.boxStrokeColor = getResources().getColor(R.color.main)

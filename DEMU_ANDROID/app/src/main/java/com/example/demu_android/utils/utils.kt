@@ -8,3 +8,7 @@ fun isRegexPassword(password: String): Boolean {
     // 8~16글자, 대문자 1개, 소문자 1개, 숫자 1개
     return password.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@\$!%*#?&]{8,16}$".toRegex())
 }
+
+fun isRegexNickName(nickName: String): Boolean {
+    return nickName.matches("^[\\\\s\\\\S]{2,10}\$".toRegex())
+}
