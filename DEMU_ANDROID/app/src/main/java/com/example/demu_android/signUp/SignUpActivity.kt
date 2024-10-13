@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -113,7 +114,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         else -> {
                             binding.tilNickName.error = null
                             binding.tilNickName.boxStrokeColor = getResources().getColor(R.color.main)
-                            emailFlag = true
+                            nickNameFlag = true
                             if (flagCheck())
                                 binding.btnSignUp.setBackgroundDrawable(ContextCompat.getDrawable(baseContext,R.drawable.bg_button))
                             else
@@ -178,9 +179,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         !isRegexPassword(s.toString()) -> {
                             binding.tilPasswordCheck.error = "비밀번호 형식이 맞지 않습니다!"
                         }
+                        binding.tiePassword.text.toString() != s.toString() -> {
+                            binding.tilPasswordCheck.error = "비밀번호가 일치하지 않습니다"
+                        }
                         else -> {
                             binding.tilPasswordCheck.error = null
-                            passwordFlag = true
+                            passwordCheckFlag = true
                             binding.tilPasswordCheck.boxStrokeColor = getResources().getColor(R.color.main)
                             // 이거이름 맞춰서 수정
                             val resource = if(flagCheck()) R.drawable.bg_button else R.drawable.button_color_nocheck
