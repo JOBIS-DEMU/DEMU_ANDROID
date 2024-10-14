@@ -32,10 +32,10 @@
             app:layout_constraintGuide_end="18dp" />
 
         <TextView
-            android:id="@+id/tv_title_login"
+            android:id="@+id/tv_title_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="로그인"
+            android:text="회원가입"
             android:textSize="22dp"
             android:textColor="@color/text"
             android:textStyle="bold"
@@ -51,7 +51,7 @@
             android:text="이메일"
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_login"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_sign_up"
             app:layout_constraintStart_toStartOf="@id/glStart"
             />
 
@@ -79,6 +79,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tv_email_guide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@dsm.hs.kr"
@@ -90,6 +91,41 @@
             />
 
         <TextView
+            android:id="@+id/tv_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:layout_constraintStart_toStartOf="@id/glStart"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:id="@+id/til_nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:hintEnabled="false"
+            android:textColorHint="@color/hint_color"
+            android:layout_marginHorizontal="18dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_nick_name"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_nick_name"
+                android:background="@color/back_white"
+                android:textColor="@color/text"
+                android:paddingStart="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="example" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
             android:id="@+id/tv_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +134,7 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="@id/glStart"
-            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:layout_constraintTop_toBottomOf="@id/til_nick_name"
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -129,27 +165,56 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tv_password_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="비밀번호 찾기"
-            android:textSize="11sp"
+            android:text="비밀번호 확인"
+            android:textSize="16dp"
             android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/glStart"
             app:layout_constraintTop_toBottomOf="@id/til_password"
-            app:layout_constraintEnd_toEndOf="@id/glEnd" />
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password_check"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hint_color"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/password_toggle_selector"
+            app:errorIconDrawable="@null"
+            app:errorEnabled="true"
+            android:layout_marginHorizontal="18dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_password_check"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_password_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:background="@color/back_white"
+                android:paddingStart="0dp"
+                android:gravity="top|start"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_sign_up"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/button_color_nocheck"
             android:layout_marginHorizontal="18dp"
-            android:text="로그인"
+            android:text="회원가입"
+            android:textStyle="bold"
             android:textSize="16dp"
             android:textColor="@color/button_text"
             android:layout_marginBottom="12dp"
             app:layout_constraintBottom_toTopOf="@id/linear_sign_up"
             />
-
 
         <LinearLayout
             android:id="@+id/linear_sign_up"
@@ -163,15 +228,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="계정이 없다면? " />
+                android:textStyle="bold"
+                android:text="계정이 있다면? " />
 
             <TextView
-                android:id="@+id/tv_bottom_sign_up"
+                android:id="@+id/tv_bottom_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/main"
-                android:text="@string/join" />
-
+                android:textStyle="bold"
+                android:text="@string/login" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
