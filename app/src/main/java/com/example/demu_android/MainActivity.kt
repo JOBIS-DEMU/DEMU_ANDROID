@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         setBottomNavigationFragment()
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.containers, HomeFragment()).commit()
-        }
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction().replace(R.id.containers, HomeFragment()).commit()
+//        }
     }
 
     private fun setBottomNavigationFragment() {
@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_search -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.bottom_search, SearchFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.containers, SearchFragment()).commit()
                     true
                 }
                 R.id.bottom_blog -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.bottom_blog, WrtieBlogFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.containers, WrtieBlogFragment()).commit()
                     true
                 }
                 R.id.bottom_my_page -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.bottom_my_page, MyPageFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.containers, MyPageFragment()).commit()
                     true
                 }
                 else -> false
