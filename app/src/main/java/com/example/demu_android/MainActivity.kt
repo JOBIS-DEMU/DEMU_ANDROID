@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         setBottomNavigationFragment()
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction().replace(R.id.containers, HomeFragment()).commit()
-//        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.containers, HomeFragment()).commit()
+        }
     }
 
     private fun setBottomNavigationFragment() {
