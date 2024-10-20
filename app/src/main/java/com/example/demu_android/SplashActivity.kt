@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun moveToMainActivity() {
-        val intent = Intent(this, Main2Activity::class.java)
+        val intent = Intent(this, OnBoardingActivity::class.java)
 
         Handler(Looper.getMainLooper()).postDelayed( {
             startActivity(intent)

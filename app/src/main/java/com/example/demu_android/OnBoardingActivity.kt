@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.demu_android.Login.LoginActivity
 import com.example.demu_android.databinding.ActivityMain2Binding
 
-class Main2Activity : AppCompatActivity(), View.OnClickListener {
+class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
     private val binding: ActivityMain2Binding by lazy {
         ActivityMain2Binding.inflate(layoutInflater)
     }
