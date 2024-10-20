@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="error">#ff0000</color>
+    <color name="main">#1B69FF</color>
+    <color name="text">#1F262C</color>
+    <color name="textField">#98A4AF</color>
+
+    <color name="button_text">#D2E1FD</color>
+    <color name="back_white">#F9FAFB</color>
+    <color name="hint_color">#98A4AF</color>
 </resources>
