@@ -1,7 +1,6 @@
 package com.example.demu_android.Login
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,12 +9,9 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.addTextChangedListener
 import com.example.demu_android.R
 import com.example.demu_android.databinding.ActivityLoginBinding
-import com.example.demu_android.home.HomeActivity
+import com.example.demu_android.MainActivity
 import com.example.demu_android.signUp.SignUpActivity
 import com.example.demu_android.utils.isRegexEmail
 import com.example.demu_android.utils.isRegexPassword
@@ -41,7 +37,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val loginToHome = Intent(this, HomeActivity::class.java)
+        val loginToHome = Intent(this, MainActivity::class.java)
         val loginToSignUp = Intent(this, SignUpActivity::class.java)
         when(v?.id) {
             R.id.btn_login -> {

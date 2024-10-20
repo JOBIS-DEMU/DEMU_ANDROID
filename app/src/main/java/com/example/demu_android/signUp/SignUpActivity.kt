@@ -4,22 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.demu_android.Login.LoginActivity
 import com.example.demu_android.R
 import com.example.demu_android.databinding.ActivitySignUpBinding
-import com.example.demu_android.home.HomeActivity
+import com.example.demu_android.MainActivity
 import com.example.demu_android.utils.isRegexEmail
 import com.example.demu_android.utils.isRegexNickName
 import com.example.demu_android.utils.isRegexPassword
-import kotlin.math.sign
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private val binding by lazy {
@@ -45,7 +41,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val signUpToHome = Intent(this, HomeActivity::class.java)
+        val signUpToHome = Intent(this, MainActivity::class.java)
         val signUpToLogin = Intent(this, LoginActivity::class.java)
 
         when(v?.id) {
