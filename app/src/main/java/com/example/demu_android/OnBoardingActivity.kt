@@ -6,11 +6,11 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.demu_android.Login.LoginActivity
-import com.example.demu_android.databinding.ActivityMain2Binding
+import com.example.demu_android.databinding.ActivityOnboardingBinding
 
-class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
-    private val binding: ActivityMain2Binding by lazy {
-        ActivityMain2Binding.inflate(layoutInflater)
+    class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
+    private val binding: ActivityOnboardingBinding by lazy {
+        ActivityOnboardingBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
