@@ -13,13 +13,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-
-.idea/
-
-gradle/
-
-gradle.properties
-
-gradlew
-
-gradlew.bat
