@@ -1,6 +1,7 @@
 package com.example.demu_android
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.demu_android.Blog.WrtieBlogFragment
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.bottom_blog -> {
                     supportFragmentManager.beginTransaction().replace(R.id.containers, WrtieBlogFragment()).commit()
+                    binding.bottomNavigation.visibility = View.GONE
                     true
                 }
                 R.id.bottom_my_page -> {
