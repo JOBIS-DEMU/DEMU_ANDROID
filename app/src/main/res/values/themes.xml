@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/main</item>
+        <item name="elevationOverlayEnabled">false</item>
     </style>
 
     <style name="Theme.DEMUANDROID" parent="Base.Theme.DEMUANDROID" />

@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/back_white"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <FrameLayout
@@ -13,10 +13,7 @@
             android:layout_weight="1"
             android:id="@+id/containers"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            >
-
-        </FrameLayout>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -24,9 +21,10 @@
             android:layout_height="wrap_content"
             app:labelVisibilityMode="labeled"
             android:background="@color/white"
+            android:backgroundTint="@null"
             app:menu="@menu/menu_bottom_view"
             app:itemIconTint="@drawable/menu_color_style"
-            app:itemTextColor="@drawable/menu_color_style"
+            app:itemTextColor="@color/main"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
