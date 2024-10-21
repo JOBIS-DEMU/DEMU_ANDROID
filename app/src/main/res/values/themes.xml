@@ -5,6 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/main</item>
         <item name="elevationOverlayEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Theme.DEMUANDROID" parent="Base.Theme.DEMUANDROID" />
