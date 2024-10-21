@@ -99,6 +99,7 @@
                 app:layout_constraintTop_toTopOf="@id/img_comment" />
 
             <ImageView
+                android:id="@+id/img_main_img"
                 android:layout_width="102dp"
                 android:layout_height="102dp"
                 android:src="@drawable/blog_main_img"

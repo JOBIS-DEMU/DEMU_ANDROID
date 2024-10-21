@@ -11,12 +11,10 @@ import com.example.demu_android.utils.Tier
 
 class WriteBlogFragment : Fragment() {
     private val blogList: MutableList<Blog> = mutableListOf(
-        Blog(1092L, "", "", "", 12092L, "", Tier.GRADE)
+        // Blog(1092L, "", "", "", 12092L, Enum<Tier.GRADE, "">)
     )
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    private val binding by lazy {
+        FragmentWriteBlg
     }
 
     override fun onCreateView(
@@ -25,5 +23,15 @@ class WriteBlogFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_wrtie_blog, container, false)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+    }
+
+    private fun setListAdapter() {
+
     }
 }
