@@ -6,8 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.demu_android.R
+import com.example.demu_android.recycler.home.WriteBlog.data.Blog
+import com.example.demu_android.utils.Tier
 
-class WrtieBlogFragment : Fragment() {
+class WriteBlogFragment : Fragment() {
+    private val blogList: MutableList<Blog> = mutableListOf(
+        Blog(1092L, "", "", "", 12092L, "", Tier.GRADE)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

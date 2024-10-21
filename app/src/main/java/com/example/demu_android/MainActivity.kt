@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.demu_android.Blog.WrtieBlogFragment
+import com.example.demu_android.Blog.WriteBlogFragment
 import com.example.demu_android.Mypage.MyPageFragment
 import com.example.demu_android.Search.SearchFragment
 import com.example.demu_android.databinding.ActivityMainBinding
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_blog -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.containers, WrtieBlogFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.containers, WriteBlogFragment()).commit()
                     binding.bottomNavigation.visibility = View.GONE
                     true
                 }
