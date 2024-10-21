@@ -12,5 +12,6 @@
 
     <color name="text_gray">#98A4AF</color>
     <color name="text_default">#1F262C</color>
+    <color name="text_icon_gray">#707583</color>
     <color name="dividing_line_color">#D9D9D9</color>
 </resources>
