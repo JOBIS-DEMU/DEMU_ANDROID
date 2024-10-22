@@ -1,6 +1,6 @@
 package com.example.demu_android.recycler.home.WriteBlog.data
 
-import com.example.demu_android.utils.Tier
+import com.example.demu_android.type.Tier
 
 data class Blog(
     val id: Long,

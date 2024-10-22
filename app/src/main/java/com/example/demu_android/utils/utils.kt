@@ -12,3 +12,7 @@ fun isRegexPassword(password: String): Boolean {
 fun isRegexNickName(nickName: String): Boolean {
     return nickName.matches("^[\\s\\S]{2,10}$".toRegex())
 }
+
+fun blogFlagCheck() {
+
+}
