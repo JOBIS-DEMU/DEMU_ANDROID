@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentHomeBinding
-import com.example.demu_android.databinding.FragmentWriteBlogBinding
-import com.example.demu_android.adapter.recycler.home.WriteBlog.WriteBlogAdaptor
-import com.example.demu_android.adapter.recycler.home.WriteBlog.data.Blog
-import com.example.demu_android.utils.Tier
+import com.example.demu_android.recycler.home.WriteBlog.WriteBlogAdaptor
+import com.example.demu_android.recycler.home.WriteBlog.data.Blog
 
 class HomeFragment : Fragment(), View.OnClickListener {
     private val blogList: MutableList<Blog> = mutableListOf(

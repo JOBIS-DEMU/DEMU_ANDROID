@@ -1,10 +1,10 @@
-package com.example.demu_android.adapter.recycler.home.WriteBlog
+package com.example.demu_android.recycler.home.WriteBlog
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demu_android.databinding.ListBlogItemBinding
-import com.example.demu_android.adapter.recycler.home.WriteBlog.data.Blog
+import com.example.demu_android.recycler.home.WriteBlog.data.Blog
 
 class
 WriteBlogAdaptor(

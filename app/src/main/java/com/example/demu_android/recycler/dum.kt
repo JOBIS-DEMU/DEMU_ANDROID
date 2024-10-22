@@ -1,4 +1,4 @@
-package com.example.demu_android.adapter.recycler
+package com.example.demu_android.recycler
 
 class dum {
 }
