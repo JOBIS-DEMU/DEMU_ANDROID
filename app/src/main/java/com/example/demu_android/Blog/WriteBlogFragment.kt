@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
+import com.example.demu_android.databinding.ListBottomSheetOptionBinding
 import com.example.demu_android.recycler.home.WriteBlog.data.Blog
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -52,6 +53,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
     private fun showDropDownMenu() {
         bottomSheetDialog.setContentView(bottomSheetView)
+        //val bottomSheetBinding = ListBottomSheetOptionBinding.inflate(layoutInflater)
 
         binding.imgDownArrow.setOnClickListener {
             bottomSheetDialog.show()
@@ -59,10 +61,59 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
         bottomSheetView.findViewById<View>(R.id.backend).setOnClickListener {
             bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "backend"
+        }
+        bottomSheetView.findViewById<View>(R.id.frontend).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "frontend"
+        }
+        bottomSheetView.findViewById<View>(R.id.ios).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "iOS"
+        }
+        bottomSheetView.findViewById<View>(R.id.aos).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "AOS"
+        }
+        bottomSheetView.findViewById<View>(R.id.ai).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "AI"
+        }
+        bottomSheetView.findViewById<View>(R.id.design_sub).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "design"
+        }
+        bottomSheetView.findViewById<View>(R.id.flutter).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "flutter"
+        }
+        bottomSheetView.findViewById<View>(R.id.full_stack).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "full stack"
+        }
+        bottomSheetView.findViewById<View>(R.id.game).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "game"
+        }
+        bottomSheetView.findViewById<View>(R.id.security).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "security"
+        }
+        bottomSheetView.findViewById<View>(R.id.embedded).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "embedded"
+        }
+        bottomSheetView.findViewById<View>(R.id.devops).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "devops"
         }
         bottomSheetView.findViewById<View>(R.id.other_major).setOnClickListener {
             bottomSheetDialog.dismiss()
-            binding.tvMajorTitle.text = "other major"
+            binding.tvMajorTitle.text = "기타 전공"
+        }
+        bottomSheetView.findViewById<View>(R.id.all_articles).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "전체 글"
         }
     }
 }
