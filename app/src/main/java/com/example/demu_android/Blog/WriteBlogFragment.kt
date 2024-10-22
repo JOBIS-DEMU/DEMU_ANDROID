@@ -1,15 +1,19 @@
 package com.example.demu_android.Blog
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
 import com.example.demu_android.databinding.ListBottomSheetOptionBinding
 import com.example.demu_android.recycler.home.WriteBlog.data.Blog
+import com.example.demu_android.utils.isRegexPassword
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class WriteBlogFragment : Fragment(), View.OnClickListener {
@@ -40,6 +44,8 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
         binding.imgDownArrow.setOnClickListener(this)
         showDropDownMenu()
+        onTitleListener()
+        onSubListener()
     }
 
     override fun onClick(v: View?) {
@@ -115,5 +121,77 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
             bottomSheetDialog.dismiss()
             binding.tvMajorTitle.text = "전체 글"
         }
+    }
+
+    private fun onTitleListener() {
+        binding.etTitle.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    when {
+                        s.isEmpty() -> {
+                            titleFlag = false
+                            if(blogFlagCheck())
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_default))
+                            else
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_gray))
+
+                        }
+                        else -> {
+                            titleFlag = true
+                            if(blogFlagCheck())
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_default))
+                            else
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_gray))
+                        }
+                    }
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
+    }
+
+    private fun onSubListener() {
+        binding.etSub.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null) {
+                    when {
+                        s.isEmpty() -> {
+                            subFlag = false
+                            if(blogFlagCheck())
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_default))
+                            else
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_gray))
+
+                        }
+                        else -> {
+                            subFlag = true
+                            if(blogFlagCheck())
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_default))
+                            else
+                                binding.tvSubmit.setTextColor(resources.getColor(R.color.text_gray))
+                        }
+                    }
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
+    }
+
+    private fun blogFlagCheck(): Boolean {
+        return titleFlag && subFlag
     }
 }
