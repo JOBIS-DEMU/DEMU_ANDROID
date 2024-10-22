@@ -1,4 +1,4 @@
-package com.example.demu_android.recycler.home.WriteBlog.data
+package com.example.demu_android.adapter.recycler.home.WriteBlog.data
 
 import com.example.demu_android.utils.Tier
 

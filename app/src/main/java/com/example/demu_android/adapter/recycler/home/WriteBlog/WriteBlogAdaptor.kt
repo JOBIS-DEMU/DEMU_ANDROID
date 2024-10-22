@@ -1,21 +1,22 @@
-package com.example.demu_android.recycler.home.WriteBlog
+package com.example.demu_android.adapter.recycler.home.WriteBlog
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demu_android.databinding.ListBlogItemBinding
-import com.example.demu_android.recycler.home.WriteBlog.data.Blog
+import com.example.demu_android.adapter.recycler.home.WriteBlog.data.Blog
 
 class
 WriteBlogAdaptor(
     private val items: List<Blog>,
-    private val itemClickListener: (Int) -> Unit
 ) : RecyclerView.Adapter<WriteBlogAdaptor.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ListBlogItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return Holder(binding, itemClickListener)
+
+
+        return Holder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -27,17 +28,16 @@ WriteBlogAdaptor(
     }
 
     class Holder(
-        private val binding: ListBlogItemBinding,
-        private val itemClickListener: (Int) -> Unit
+        private val binding: ListBlogItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.root.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    itemClickListener(position)
-                }
-            }
-        }
+//        init {
+//            binding.root.setOnClickListener {
+//                val position = adapterPosition
+//                if (position != RecyclerView.NO_POSITION) {
+//                    itemClickListener(position)
+//                }
+//            }
+//        }
         fun bind(blog: Blog) {
 
         }
