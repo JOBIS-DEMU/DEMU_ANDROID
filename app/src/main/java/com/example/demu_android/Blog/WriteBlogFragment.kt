@@ -24,7 +24,8 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext())
     }
-
+    private var titleFlag = false
+    private var subFlag = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,9 +64,5 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
             bottomSheetDialog.dismiss()
             binding.tvMajorTitle.text = "other major"
         }
-    }
-
-    private fun bottomSheetClickListener() {
-
     }
 }
