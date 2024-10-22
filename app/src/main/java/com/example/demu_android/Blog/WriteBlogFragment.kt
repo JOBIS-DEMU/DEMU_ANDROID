@@ -18,6 +18,12 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     private val binding by lazy {
         FragmentWriteBlogBinding.inflate(layoutInflater)
     }
+    private val bottomSheetView by lazy {
+        layoutInflater.inflate(R.layout.list_bottom_sheet_option, null)
+    }
+    private val bottomSheetDialog by lazy {
+        BottomSheetDialog(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +37,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         binding.imgDownArrow.setOnClickListener(this)
+        showDropDownMenu()
     }
 
     override fun onClick(v: View?) {
@@ -43,14 +50,22 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     }
 
     private fun showDropDownMenu() {
-        Log.d("TEST", "함수실행2")
-        val bottomSheetView = layoutInflater.inflate(R.layout.list_spinner_option, null)
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
         bottomSheetDialog.setContentView(bottomSheetView)
 
         binding.imgDownArrow.setOnClickListener {
-            Log.d("TEST", "함수실행3")
             bottomSheetDialog.show()
         }
+
+        bottomSheetView.findViewById<View>(R.id.backend).setOnClickListener {
+            bottomSheetDialog.dismiss()
+        }
+        bottomSheetView.findViewById<View>(R.id.other_major).setOnClickListener {
+            bottomSheetDialog.dismiss()
+            binding.tvMajorTitle.text = "other major"
+        }
+    }
+
+    private fun bottomSheetClickListener() {
+
     }
 }
