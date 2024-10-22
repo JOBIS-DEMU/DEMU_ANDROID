@@ -41,9 +41,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val loginToSignUp = Intent(this, SignUpActivity::class.java)
         when(v?.id) {
             R.id.btn_login -> {
-                if (flagCheck())
+                if (flagCheck()) {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(loginToHome)
-                else
+                } else
                     Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
             }
             R.id.tv_bottom_sign_up -> {

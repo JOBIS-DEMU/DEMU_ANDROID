@@ -1,5 +1,6 @@
 package com.example.demu_android.Blog
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,11 +10,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentTransaction
+import com.example.demu_android.MainActivity
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
 import com.example.demu_android.databinding.ListBottomSheetOptionBinding
+import com.example.demu_android.home.HomeFragment
 import com.example.demu_android.recycler.home.WriteBlog.data.Blog
 import com.example.demu_android.utils.isRegexPassword
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class WriteBlogFragment : Fragment(), View.OnClickListener {
@@ -43,16 +48,30 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         binding.imgDownArrow.setOnClickListener(this)
+        binding.tvSubmit.setOnClickListener(this)
+
         showDropDownMenu()
         onTitleListener()
         onSubListener()
     }
 
     override fun onClick(v: View?) {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+
         when(v?.id) {
             R.id.img_down_arrow -> {
                 showDropDownMenu()
                 Log.d("TEST", "함수실행")
+            }
+            R.id.tv_submit -> {
+                if (blogFlagCheck()) {
+                    transaction?.replace(R.id.containers, HomeFragment())
+                    transaction?.commit()
+                    // bottom navigation 보여짐
+                    // mainActivity에서 hide(), add() 함수 이용하여 구현
+                    val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+                    bottomNavigationView.visibility = View.VISIBLE
+                }
             }
         }
     }
