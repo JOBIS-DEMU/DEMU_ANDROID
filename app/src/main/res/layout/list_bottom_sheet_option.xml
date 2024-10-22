@@ -8,6 +8,7 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/design_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="design"
@@ -18,6 +19,7 @@
             android:layout_marginBottom="16dp" />
 
         <TextView
+            android:id="@+id/backend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="backend"
@@ -30,10 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/frontend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="frontend"
@@ -46,10 +48,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/ios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="iOS"
@@ -62,10 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/aos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AOS"
@@ -78,10 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/ai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AI"
@@ -94,10 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/design_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="design"
@@ -110,10 +112,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/flutter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="flutter"
@@ -126,10 +128,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/full_stack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="full stack"
@@ -142,10 +144,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="game"
@@ -158,10 +160,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/security"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="security"
@@ -174,10 +176,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/embedded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="embedded"
@@ -190,10 +192,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/devops"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="devops"
@@ -206,10 +208,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/other_major"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="기타 전공"
@@ -222,10 +224,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/dividing_line_color"
-            android:layout_marginTop="8dp"
-            />
+            android:layout_marginTop="8dp" />
 
         <TextView
+            android:id="@+id/all_articles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전체 글"
