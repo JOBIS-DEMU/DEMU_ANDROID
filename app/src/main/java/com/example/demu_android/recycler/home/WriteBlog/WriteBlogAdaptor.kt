@@ -14,8 +14,6 @@ WriteBlogAdaptor(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ListBlogItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-
-
         return Holder(binding)
     }
 
@@ -39,7 +37,7 @@ WriteBlogAdaptor(
 //            }
 //        }
         fun bind(blog: Blog) {
-
+            binding.tvItemTitle.text = blog.title
         }
     }
 }
