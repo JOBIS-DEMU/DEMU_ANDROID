@@ -84,6 +84,10 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    private fun sendBlogListInfo() {
+
+    }
+
     private fun showPhotoPicker() {
         val pickMultiMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { urls ->
 
