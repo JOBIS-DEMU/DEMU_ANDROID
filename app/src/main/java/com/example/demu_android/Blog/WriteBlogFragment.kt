@@ -54,6 +54,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
         binding.imgDownArrow.setOnClickListener(this)
         binding.tvSubmit.setOnClickListener(this)
+        binding.tvCancel.setOnClickListener(this)
 
         showDropDownMenu()
         onTitleListener()
@@ -62,11 +63,11 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val transaction = activity?.supportFragmentManager?.beginTransaction()
+        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         when(v?.id) {
             R.id.img_down_arrow -> {
                 showDropDownMenu()
-                Log.d("TEST", "함수실행")
             }
             R.id.tv_submit -> {
                 if (blogFlagCheck()) {
@@ -74,9 +75,13 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
                     transaction?.commit()
                     // bottom navigation 보여짐
                     // mainActivity에서 hide(), add() 함수 이용하여 구현
-                    val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
                     bottomNavigationView.visibility = View.VISIBLE
                 }
+            }
+            R.id.tv_cancel -> {
+                transaction?.replace(R.id.containers, HomeFragment())
+                transaction?.commit()
+                bottomNavigationView.visibility = View.VISIBLE
             }
             R.id.cv_add_image -> {
                 showPhotoPicker()
