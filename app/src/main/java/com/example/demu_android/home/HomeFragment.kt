@@ -1,6 +1,7 @@
 package com.example.demu_android.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,13 +30,21 @@ class HomeFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val result = arguments?.getString("blogTitle")
 
+        result?.let { Blog(it, "afdsa", Major.ANDROID) }?.let {
+            blogList.add(
+                it
+            )
+            writeBlogViewModel.addBlogList(blogList)
+        }
+
+        Log.d("TEST", blogList.toString())
 
         setAddBlogList()
         observeBlogList()

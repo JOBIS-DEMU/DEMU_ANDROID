@@ -14,6 +14,7 @@ import android.widget.ListView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentTransaction
 import com.example.demu_android.MainActivity
 import com.example.demu_android.R
@@ -59,11 +60,20 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         showDropDownMenu()
         onTitleListener()
         onSubListener()
+        sendBlogListInfo()
     }
 
     override fun onClick(v: View?) {
         val transaction = activity?.supportFragmentManager?.beginTransaction()
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        val bundle = Bundle()
+        bundle.putString("blogTitle", binding.etTitle.text.toString())
+        bundle.putString("blogContent", "")
+        bundle.putString("blog", "")
+
+        val homeFragment = HomeFragment()
+        homeFragment.arguments = bundle
 
         when(v?.id) {
             R.id.img_down_arrow -> {
@@ -71,7 +81,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
             }
             R.id.tv_submit -> {
                 if (blogFlagCheck()) {
-                    transaction?.replace(R.id.containers, HomeFragment())
+                    transaction?.replace(R.id.containers, homeFragment)
                     transaction?.commit()
                     // bottom navigation 보여짐
                     // mainActivity에서 hide(), add() 함수 이용하여 구현
@@ -90,7 +100,6 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     }
 
     private fun sendBlogListInfo() {
-
     }
 
     private fun showPhotoPicker() {
