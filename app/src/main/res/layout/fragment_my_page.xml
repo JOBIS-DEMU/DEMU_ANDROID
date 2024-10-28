@@ -5,13 +5,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/back_white"
         tools:context=".feature.Mypage.MyPageFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/main"
-            android:padding="44dp"
+            android:padding="40dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -19,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="4dp"
                 android:text="마이페이지"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -28,8 +29,129 @@
         </LinearLayout>
         
         <ImageView
+            android:id="@+id/img_my_page_my_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_default_image"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/img_my_page_add_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_float_button"
+            app:layout_constraintBottom_toBottomOf="@id/img_my_page_my_img"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_my_page_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="홍길동"
+            android:textColor="@color/text_default"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_my_page_my_img" />
+
+        <TextView
+            android:id="@+id/tv_my_page_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="backend"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_gray"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/tv_my_page_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_my_page_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_my_page_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            app:boxStrokeColor="@color/gray_2"
+            android:textColorHint="@color/text_gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_page_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_my_page_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_write_gray"
+                android:background="@drawable/my_page_input_style"
+                android:textSize="14sp"
+                android:hint="20자 이하의 자기소개를 작성해주세요"
+                android:gravity="center"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_my_page_remain_next_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다음 등급까지 30% 남았어요!"
+            android:textSize="13sp"
+            android:textColor="@color/text_default"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/til_my_page_introduce"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/gray_3"
+            android:paddingVertical="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_page_remain_next_grade"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_tier_bronze"
+                android:layout_marginStart="32dp" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_progress_bar"
+                     />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_progress_bar_now_state" />
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_tier_silver"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
