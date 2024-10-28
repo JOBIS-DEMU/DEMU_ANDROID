@@ -12,6 +12,4 @@ object ApiProvider {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
-
 }
