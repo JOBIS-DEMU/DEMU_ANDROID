@@ -1,9 +1,12 @@
 package com.example.demu_android.feature.home
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,6 +28,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
         ViewModelProvider(this@HomeFragment)[WriteBlogViewModel::class.java]
     }
 
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
+        if (uris.isNotEmpty()) {
+            Log.d("TEST", "Number of items selected: ${uris.size}")
+            loadImage(uris[0])
+        } else {
+            Log.d("PhotoPicker", "No media selected")
+        }
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +52,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         arguments?.let {
             val blogTitle = it.getString("blogTitle", "")
             val blogContent = it.getString("blogContent", "")
-
+            Log.d("TEST",blogTitle)
             if (blogTitle.isNotEmpty() && blogContent.isNotEmpty()) {
                 blogList.add(Blog(blogTitle, blogContent, Major.ANDROID))
             }
@@ -61,8 +74,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
         writeBlogViewModel.blogList.observe(this) {
             val writeBlogAdaptor = WriteBlogAdaptor(it)
             val layoutManager = GridLayoutManager(requireContext(), 1)
+            writeBlogAdaptor.notifyDataSetChanged()
             binding.recycler.layoutManager = layoutManager
             binding.recycler.adapter = writeBlogAdaptor
         }
+    }
+
+    private fun loadImage(uri: Uri) {
+        Glide.with(this)
+            .load(uri)
+            .into(activityMainBinding.imgListImg)
     }
 }

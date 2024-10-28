@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/tv_item_title"
-                android:layout_width="260dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:text="내가 최고 동아리 DMS와 자비스에 합격했던 비결"
                 android:textColor="@color/text_default"
