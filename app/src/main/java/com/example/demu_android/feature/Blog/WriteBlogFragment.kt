@@ -12,7 +12,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
-import com.example.demu_android.databinding.ListBottomSheetOptionBinding
+import com.example.demu_android.databinding.ListBottomSheetItemBinding
 import com.example.demu_android.feature.home.HomeFragment
 import com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -105,7 +105,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
     private fun showDropDownMenu() {
         bottomSheetDialog.setContentView(bottomSheetView)
-        val bottomSheetBinding = ListBottomSheetOptionBinding.inflate(layoutInflater)
+        val bottomSheetBinding = ListBottomSheetItemBinding.inflate(layoutInflater)
 
         binding.imgDownArrow.setOnClickListener {
             bottomSheetDialog.show()

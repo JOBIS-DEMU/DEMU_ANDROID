@@ -14,7 +14,7 @@ class ModelBottomSheet : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.list_bottom_sheet_option, container, false)
+        return inflater.inflate(R.layout.list_bottom_sheet_item, container, false)
     }
 
     companion object {
