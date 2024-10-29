@@ -1,15 +1,19 @@
 package com.example.demu_android.feature.Blog
 
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ListView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
 import com.example.demu_android.databinding.ListBottomSheetItemBinding
@@ -31,6 +35,17 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext())
     }
+
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
+        if (uris.isNotEmpty()) {
+            Log.d("TEST", "Number of items selected: ${uris.size}")
+            loadImage(uris[0])
+        } else {
+            Log.d("PhotoPicker", "No media selected")
+        }
+
+    }
+
     private lateinit var listView: ListView
 
     private var titleFlag = false
@@ -53,6 +68,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         onTitleListener()
         onSubListener()
         sendBlogListInfo()
+        showPhotoPicker()
     }
 
     override fun onClick(v: View?) {
@@ -86,7 +102,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
                 bottomNavigationView.visibility = View.VISIBLE
             }
             R.id.cv_add_image -> {
-                showPhotoPicker()
+
             }
         }
     }
@@ -240,5 +256,11 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
 
     private fun blogFlagCheck(): Boolean {
         return titleFlag && subFlag
+    }
+
+    private fun loadImage(uri: Uri) {
+        Glide.with(requireContext())
+            .load(uri)
+            .into(binding.imgSelectImg)
     }
 }

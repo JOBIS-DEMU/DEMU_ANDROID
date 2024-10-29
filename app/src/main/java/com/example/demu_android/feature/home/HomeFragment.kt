@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.example.demu_android.feature.Blog.WriteBlogViewModel
 import com.example.demu_android.databinding.FragmentHomeBinding
 import com.example.demu_android.feature.recycler.home.WriteBlog.WriteBlogAdaptor
@@ -28,16 +29,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         ViewModelProvider(this@HomeFragment)[WriteBlogViewModel::class.java]
     }
 
-    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
-        if (uris.isNotEmpty()) {
-            Log.d("TEST", "Number of items selected: ${uris.size}")
-            loadImage(uris[0])
-        } else {
-            Log.d("PhotoPicker", "No media selected")
-        }
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,8 +44,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
             val blogTitle = it.getString("blogTitle", "")
             val blogContent = it.getString("blogContent", "")
             Log.d("TEST",blogTitle)
+
+            blogList.add(Blog(blogTitle, blogContent, Major.ANDROID))
+
             if (blogTitle.isNotEmpty() && blogContent.isNotEmpty()) {
-                blogList.add(Blog(blogTitle, blogContent, Major.ANDROID))
+
             }
         }
 
@@ -78,11 +72,5 @@ class HomeFragment : Fragment(), View.OnClickListener {
             binding.recycler.layoutManager = layoutManager
             binding.recycler.adapter = writeBlogAdaptor
         }
-    }
-
-    private fun loadImage(uri: Uri) {
-        Glide.with(this)
-            .load(uri)
-            .into(activityMainBinding.imgListImg)
     }
 }

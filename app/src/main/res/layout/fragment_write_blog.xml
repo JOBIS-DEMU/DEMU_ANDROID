@@ -104,6 +104,7 @@
             app:strokeColor="@color/text_gray">
 
             <ImageView
+                android:id="@+id/img_select_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
