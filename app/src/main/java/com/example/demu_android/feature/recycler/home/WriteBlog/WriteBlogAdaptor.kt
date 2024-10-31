@@ -30,8 +30,6 @@ WriteBlogAdaptor(
         private val binding: ListBlogItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(blog: Blog) {
-            Log.d("TEST", binding.blog.toString())
-            binding.blog = blog
             binding.tvItemTitle.text = blog.title
         }
     }
