@@ -5,11 +5,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiProvider {
     private const val BASE_URL = "https://3.37.219.136:8080"
+    private var retrofit: Retrofit? = null
 
-    fun getApiClient(): Retrofit {
-        return Retrofit.Builder()
+    private fun getApiInstance(): Retrofit {
+        retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+        return retrofit!!
+    }
+
+    fun getAuthApi(): AuthApi {
+        return getApiInstance().create(AuthApi::class.java)
     }
 }
