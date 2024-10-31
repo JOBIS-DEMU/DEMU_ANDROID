@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.example.demu_android.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ModelBottomSheet : BottomSheetDialogFragment() {
+class ModelBottomSheet(val sia: String) : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,5 +19,7 @@ class ModelBottomSheet : BottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "BasicBottomModalSheet"
+        val dklsjf = ModelBottomSheet("")
     }
+
 }

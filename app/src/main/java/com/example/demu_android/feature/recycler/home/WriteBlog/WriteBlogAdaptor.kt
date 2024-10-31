@@ -29,15 +29,9 @@ WriteBlogAdaptor(
     class Holder(
         private val binding: ListBlogItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-//        init {
-//            binding.root.setOnClickListener {
-//                val position = adapterPosition
-//                if (position != RecyclerView.NO_POSITION) {
-//                    itemClickListener(position)
-//                }
-//            }
-//        }
         fun bind(blog: Blog) {
+            Log.d("TEST", binding.blog.toString())
+            binding.blog = blog
             binding.tvItemTitle.text = blog.title
         }
     }

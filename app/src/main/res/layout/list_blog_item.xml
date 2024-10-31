@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="blog"
+            type="com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,7 +54,7 @@
                 android:id="@+id/tv_item_title"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:text="내가 최고 동아리 DMS와 자비스에 합격했던 비결"
+                android:text="@{blog.title}"
                 android:textColor="@color/text_default"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
