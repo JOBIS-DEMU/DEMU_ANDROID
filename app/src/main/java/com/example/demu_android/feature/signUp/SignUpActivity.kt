@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -214,7 +215,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun connectToServer(email: String, nickName: String, password: String) {
-        val signUpToHome = Intent(this, LoginActivity::class.java)
+        val signUpToLogin = Intent(this, LoginActivity::class.java)
 
         retrofit.signUp(
             SignUpRequest(
@@ -227,11 +228,16 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                 call: Call<SignUpResponse>,
                 response: Response<SignUpResponse>
             ) {
-                startActivity(signUpToLogin)
+                when(response.code()) {
+                    200 -> {
+                        startActivity(signUpToLogin)
+                    }
+                }
             }
 
             override fun onFailure(call: Call<SignUpResponse>, t: Throwable) {
-                Log.d("TEST", t.message.toString)
+                Log.d("TEST", t.message.toString())
+                Log.d("TEST", t.cause.toString())
             }
         })
     }
