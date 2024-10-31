@@ -1,4 +1,4 @@
-package com.example.demu_android.data.response.Auth
+package com.example.demu_android.data.response.auth
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,5 +1,11 @@
 package com.example.demu_android.data.api
 
-interface AuthApi {
+import retrofit2.http.Body
+import retrofit2.http.POST
 
+interface AuthApi {
+    @POST("/public/signup")
+    fun signup() {
+
+    }
 }
