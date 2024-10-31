@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DEMU_ANDROID"
+rootProject.name = "DEMU-ANDROID"
 include(":app")
  
