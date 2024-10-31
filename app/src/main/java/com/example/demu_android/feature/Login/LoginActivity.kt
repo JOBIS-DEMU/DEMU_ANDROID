@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             R.id.btn_login -> {
                 if (flagCheck()) {
+                    connectSeverLogin()
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(loginToHome)
                 } else
@@ -121,5 +122,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun flagCheck(): Boolean {
         return emailFlag && passwordFlag
+    }
+
+    private fun connectSeverLogin() {
+
     }
 }

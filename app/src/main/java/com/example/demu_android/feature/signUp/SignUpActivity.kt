@@ -11,11 +11,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.demu_android.feature.Login.LoginActivity
 import com.example.demu_android.R
+import com.example.demu_android.data.api.ApiProvider
+import com.example.demu_android.data.request.auth.SignUpRequest
+import com.example.demu_android.data.response.auth.SignUpResponse
 import com.example.demu_android.databinding.ActivitySignUpBinding
 import com.example.demu_android.feature.MainActivity
 import com.example.demu_android.feature.utils.isRegexEmail
 import com.example.demu_android.feature.utils.isRegexNickName
 import com.example.demu_android.feature.utils.isRegexPassword
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private val binding by lazy {
@@ -25,6 +32,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     var nickNameFlag = false
     var passwordFlag = false
     var passwordCheckFlag = false
+
+    private val retrofit = ApiProvider.getAuthApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,14 +50,18 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val signUpToHome = Intent(this, MainActivity::class.java)
         val signUpToLogin = Intent(this, LoginActivity::class.java)
+
+        val email = binding.tieEmail.toString()
+        val nickName = binding.tieNickName.toString()
+        val password = binding.tiePassword.toString()
 
         when(v?.id) {
             R.id.btn_sign_up -> {
-                if(flagCheck())
-                    startActivity(signUpToHome)
-                else
+                if(flagCheck()) {
+                    connectToServer(email, nickName, password)
+
+                } else
                     Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
             }
             R.id.tv_bottom_login -> {
@@ -198,5 +211,28 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun flagCheck(): Boolean {
         return emailFlag && nickNameFlag && passwordFlag && passwordCheckFlag
+    }
+
+    private fun connectToServer(email: String, nickName: String, password: String) {
+        val signUpToHome = Intent(this, LoginActivity::class.java)
+
+        retrofit.signUp(
+            SignUpRequest(
+                accountId = email,
+                nickname = nickName,
+                password = password
+            )
+        ).enqueue(object : Callback<SignUpResponse> {
+            override fun onResponse(
+                call: Call<SignUpResponse>,
+                response: Response<SignUpResponse>
+            ) {
+                startActivity(signUpToLogin)
+            }
+
+            override fun onFailure(call: Call<SignUpResponse>, t: Throwable) {
+                Log.d("TEST", t.message.toString)
+            }
+        })
     }
 }
