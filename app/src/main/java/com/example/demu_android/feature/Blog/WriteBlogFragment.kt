@@ -36,7 +36,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         BottomSheetDialog(requireContext())
     }
 
-    private val pickMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
+    private val pickMultiMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
         if (uris.isNotEmpty()) {
             Log.d("TEST", "Number of items selected: ${uris.size}")
             loadImage(uris[0])
@@ -63,6 +63,12 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         binding.imgDownArrow.setOnClickListener(this)
         binding.tvSubmit.setOnClickListener(this)
         binding.tvCancel.setOnClickListener(this)
+
+        binding.cvAddImage.run {
+            setOnClickListener {
+                pickMultiMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            }
+        }
 
         showDropDownMenu()
         onTitleListener()
@@ -102,7 +108,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
                 bottomNavigationView.visibility = View.VISIBLE
             }
             R.id.cv_add_image -> {
-
+                showPhotoPicker()
             }
         }
     }
@@ -112,11 +118,6 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     }
 
     private fun showPhotoPicker() {
-        val pickMultiMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { urls ->
-
-        }
-
-        pickMultiMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
     private fun showDropDownMenu() {
