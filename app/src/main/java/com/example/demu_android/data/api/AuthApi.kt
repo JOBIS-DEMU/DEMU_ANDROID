@@ -11,4 +11,5 @@ interface AuthApi {
     fun signUp(
         @Body request: SignUpRequest
     ): Call<SignUpResponse>
+
 }

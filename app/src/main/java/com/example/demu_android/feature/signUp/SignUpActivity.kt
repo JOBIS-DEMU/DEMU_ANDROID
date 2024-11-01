@@ -35,6 +35,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     var passwordCheckFlag = false
 
     private val retrofit = ApiProvider.getAuthApi()
+    private val signUpApi = ApiProvider.getAuthApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
