@@ -52,6 +52,9 @@ dependencies {
     implementation (libs.retrofit)
     implementation(libs.converter.gson)
 
+    implementation (libs.okhttp3.okhttp)
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.8.0")
+
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
 }
