@@ -262,6 +262,6 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     private fun loadImage(uri: Uri) {
         Glide.with(requireContext())
             .load(uri)
-            .into(binding.imgSelectImg)
+            .into(binding.imgAddImg)
     }
 }
