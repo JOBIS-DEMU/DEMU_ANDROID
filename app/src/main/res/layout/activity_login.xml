@@ -50,6 +50,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
             app:hintEnabled="false"
+            android:maxLines="1"
             android:textColorHint="@color/text_gray"
             android:layout_marginHorizontal="18dp"
             app:layout_constraintTop_toBottomOf="@id/tv_email"
@@ -112,6 +113,7 @@
                 android:background="@color/back_white"
                 android:hint="8자 이상의 비밀번호를 입력해주세요"
                 android:paddingStart="0dp"
+                android:maxLines="1"
                 android:gravity="top|start"/>
 
         </com.google.android.material.textfield.TextInputLayout>
