@@ -84,6 +84,7 @@
             android:layout_marginTop="4dp"
             app:boxStrokeColor="@color/gray_2"
             app:hintEnabled="true"
+            android:maxLines="1"
             android:textColorHint="@color/text_gray"
             app:layout_constraintTop_toBottomOf="@id/tv_my_page_name"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +98,6 @@
                 android:drawableEnd="@drawable/ic_write_gray"
                 android:background="@drawable/my_page_input_style"
                 android:textSize="14sp"
-                android:maxLines="1"
                 android:hint="20자 이하의 자기소개를 작성해주세요"
                 android:gravity="center"
                 />

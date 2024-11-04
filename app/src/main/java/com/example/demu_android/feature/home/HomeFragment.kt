@@ -1,5 +1,6 @@
 package com.example.demu_android.feature.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.demu_android.feature.Blog.WriteBlogViewModel
 import com.example.demu_android.databinding.FragmentHomeBinding
 import com.example.demu_android.databinding.FragmentMyPageBinding
+import com.example.demu_android.feature.Blog.BlogReadOnlyActivity
 import com.example.demu_android.feature.recycler.home.WriteBlog.WriteBlogAdaptor
 import com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog
 import com.example.demu_android.feature.type.Major
@@ -51,6 +53,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
             if (blogTitle.isNotEmpty() && blogContent.isNotEmpty()) {
 
             }
+        }
+        binding.recycler.setOnClickListener {
+            val homeToBlogReadOnly = Intent(requireContext(), BlogReadOnlyActivity::class.java)
+            startActivity(homeToBlogReadOnly)
         }
 
         setAddBlogList()

@@ -48,6 +48,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
             app:hintEnabled="false"
+            android:maxLines="1"
             android:textColorHint="@color/text_gray"
             android:layout_marginHorizontal="18dp"
             app:layout_constraintTop_toBottomOf="@id/tv_email"
@@ -58,7 +59,6 @@
                 android:background="@color/back_white"
                 android:textColor="@color/text_default"
                 android:paddingStart="0dp"
-                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="example" />
@@ -95,6 +95,7 @@
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
             app:hintEnabled="false"
+            android:maxLines="1"
             android:textColorHint="@color/text_gray"
             android:layout_marginHorizontal="18dp"
             app:layout_constraintTop_toBottomOf="@id/tv_nick_name"
@@ -105,7 +106,6 @@
                 android:background="@color/back_white"
                 android:textColor="@color/text_default"
                 android:paddingStart="0dp"
-                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="example" />
@@ -136,6 +136,7 @@
             app:passwordToggleDrawable="@drawable/password_toggle_selector"
             app:errorIconDrawable="@null"
             app:errorEnabled="true"
+            android:maxLines="1"
             android:layout_marginHorizontal="18dp"
             >
 
@@ -144,7 +145,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_default"
-                android:maxLines="1"
                 android:background="@color/back_white"
                 android:hint="8자 이상의 비밀번호를 입력해주세요"
                 android:paddingStart="0dp"
@@ -175,6 +175,7 @@
             app:passwordToggleDrawable="@drawable/password_toggle_selector"
             app:errorIconDrawable="@null"
             app:errorEnabled="true"
+            android:maxLines="1"
             android:layout_marginHorizontal="18dp"
             app:layout_constraintTop_toBottomOf="@id/tv_password_check"
             >
@@ -185,7 +186,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_default"
                 android:background="@color/back_white"
-                android:maxLines="1"
                 android:paddingStart="0dp"
                 android:gravity="top|start"/>
 

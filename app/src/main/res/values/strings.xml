@@ -3,8 +3,8 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="join"><u>회원가입하기</u></string>
     <string name="login"><u>로그인</u></string>
-    
-    <string-array name="major" >
+
+    <string-array name="major">
         <item>backend</item>
         <item>frontend</item>
         <item>iOS</item>
