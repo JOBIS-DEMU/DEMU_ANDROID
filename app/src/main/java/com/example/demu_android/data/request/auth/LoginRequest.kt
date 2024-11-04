@@ -1,4 +1,6 @@
 package com.example.demu_android.data.request.auth
 
-class LoginRequest {
-}
+data class LoginRequest(
+    val accountId: String,
+    val password: String,
+)

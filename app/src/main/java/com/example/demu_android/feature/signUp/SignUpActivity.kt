@@ -16,14 +16,12 @@ import com.example.demu_android.data.api.ApiProvider
 import com.example.demu_android.data.request.auth.SignUpRequest
 import com.example.demu_android.data.response.auth.SignUpResponse
 import com.example.demu_android.databinding.ActivitySignUpBinding
-import com.example.demu_android.feature.MainActivity
 import com.example.demu_android.feature.utils.isRegexEmail
 import com.example.demu_android.feature.utils.isRegexNickName
 import com.example.demu_android.feature.utils.isRegexPassword
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private val binding by lazy {
@@ -35,7 +33,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     var passwordCheckFlag = false
 
     private val retrofit = ApiProvider.getAuthApi()
-    private val signUpApi = ApiProvider.getAuthApi()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +59,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             R.id.btn_sign_up -> {
                 if(flagCheck()) {
-                    connectToServer(email, nickName, password)
+                    connectSignUpToServer(email, nickName, password)
 
                 } else
                     Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
@@ -215,7 +213,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         return emailFlag && nickNameFlag && passwordFlag && passwordCheckFlag
     }
 
-    private fun connectToServer(email: String, nickName: String, password: String) {
+    private fun connectSignUpToServer(email: String, nickName: String, password: String) {
         val signUpToLogin = Intent(this, LoginActivity::class.java)
 
         retrofit.signUp(

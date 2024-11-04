@@ -4,17 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.demu_android.R
+import com.example.demu_android.data.api.ApiProvider
+import com.example.demu_android.data.request.auth.LoginRequest
+import com.example.demu_android.data.request.auth.SignUpRequest
+import com.example.demu_android.data.response.auth.LoginResponse
+import com.example.demu_android.data.response.auth.SignUpResponse
 import com.example.demu_android.databinding.ActivityLoginBinding
 import com.example.demu_android.feature.MainActivity
 import com.example.demu_android.feature.signUp.SignUpActivity
 import com.example.demu_android.feature.utils.isRegexEmail
 import com.example.demu_android.feature.utils.isRegexPassword
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val binding: ActivityLoginBinding by lazy {
@@ -23,6 +32,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     var emailFlag = false
     var passwordFlag = false
+
+    private val retrofit = ApiProvider.getAuthApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,14 +48,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val loginToHome = Intent(this, MainActivity::class.java)
         val loginToSignUp = Intent(this, SignUpActivity::class.java)
+        val loginToHome = Intent(this, MainActivity::class.java)
+
+        val email = binding.tieEmail.text.toString()
+        val password = binding.tiePassword.text.toString()
+
         when(v?.id) {
             R.id.btn_login -> {
                 if (flagCheck()) {
-                    connectSeverLogin()
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(loginToHome)
+                    connectSignUpToServer(email, password)
                 } else
                     Toast.makeText(this, "정확히 값을 입력해주세요", Toast.LENGTH_LONG).show()
             }
@@ -124,7 +138,23 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         return emailFlag && passwordFlag
     }
 
-    private fun connectSeverLogin() {
+    private fun connectSignUpToServer(email: String, password: String) {
+        val loginToHome = Intent(this, MainActivity::class.java)
 
+        retrofit.login(
+            LoginRequest(
+                accountId = email,
+                password = password
+            )
+        ).enqueue(object :  Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(loginToHome)
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.d("TEST", t.message.toString())
+            }
+        })
     }
 }

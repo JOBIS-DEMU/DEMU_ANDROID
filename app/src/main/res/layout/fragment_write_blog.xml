@@ -112,6 +112,7 @@
                 android:src="@drawable/ic_add_image" />
 
             <TextView
+                android:id="@+id/tv_write_blog_selected_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="18dp"
@@ -131,6 +132,17 @@
             app:layout_constraintTop_toBottomOf="@id/spacer_1"
             app:layout_constraintStart_toEndOf="@id/cv_add_image" />
 
+        <ListView
+            android:id="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/photo_image_item"
+            app:layout_constraintTop_toBottomOf="@id/spacer_1"
+            app:layout_constraintStart_toEndOf="@id/cv_add_image"/>
+
 
         <EditText
             android:id="@+id/et_title"
@@ -139,6 +151,7 @@
             android:layout_marginTop="30dp"
             android:background="@null"
             android:hint="제목"
+            android:maxLines="1"
             android:textSize="26dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/gl_start"

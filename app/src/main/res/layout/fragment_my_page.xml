@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/back_white"
@@ -96,6 +97,7 @@
                 android:drawableEnd="@drawable/ic_write_gray"
                 android:background="@drawable/my_page_input_style"
                 android:textSize="14sp"
+                android:maxLines="1"
                 android:hint="20자 이하의 자기소개를 작성해주세요"
                 android:gravity="center"
                 />

@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:queryHint="검색"
+            android:maxLines="1"
             android:layout_marginTop="20dp"
             app:queryBackground="@drawable/my_page_progress_bar_style"
             app:layout_constraintTop_toTopOf="parent"

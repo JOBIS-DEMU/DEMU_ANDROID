@@ -1,25 +1,26 @@
 package com.example.demu_android.feature.home
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
 import com.example.demu_android.feature.Blog.WriteBlogViewModel
 import com.example.demu_android.databinding.FragmentHomeBinding
+import com.example.demu_android.databinding.FragmentMyPageBinding
 import com.example.demu_android.feature.recycler.home.WriteBlog.WriteBlogAdaptor
 import com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog
 import com.example.demu_android.feature.type.Major
 
 class HomeFragment : Fragment(), View.OnClickListener {
-    private val blogList: MutableList<Blog> = mutableListOf(
-        Blog("안녕하세요", "xptmxmdlqslek", Major.ANDROID)
+    private var blogList: MutableList<Blog> = mutableListOf(
+        Blog("안녕하세요", "xptmxmdlqslek", Major.ANDROID),
+        Blog("반갑습니다", "", Major.BACKEND),
     )
     private val binding by lazy {
         FragmentHomeBinding.inflate(layoutInflater)
@@ -66,8 +67,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun observeBlogList() {
         writeBlogViewModel.blogList.observe(this) {
+            Log.d("TEST", blogList.toString())
             val writeBlogAdaptor = WriteBlogAdaptor(it)
             val layoutManager = GridLayoutManager(requireContext(), 1)
+            writeBlogAdaptor.addItem(blogList)
             writeBlogAdaptor.notifyDataSetChanged()
             binding.recycler.layoutManager = layoutManager
             binding.recycler.adapter = writeBlogAdaptor

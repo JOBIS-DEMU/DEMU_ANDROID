@@ -9,7 +9,7 @@ import com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog
 
 class
 WriteBlogAdaptor(
-    private val items: List<Blog>,
+    private var items: List<Blog>,
 ) : RecyclerView.Adapter<WriteBlogAdaptor.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -32,5 +32,12 @@ WriteBlogAdaptor(
         fun bind(blog: Blog) {
             binding.tvItemTitle.text = blog.title
         }
+    }
+
+    fun addItem(data: List<Blog>) {
+        items = data
+        Log.d("TEST3", items.toString())
+        Log.d("TEST4", data.toString())
+        notifyDataSetChanged()
     }
 }

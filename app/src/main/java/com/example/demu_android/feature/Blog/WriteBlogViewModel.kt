@@ -11,9 +11,6 @@ class WriteBlogViewModel : ViewModel() {
     var blogList: LiveData<List<Blog>> =_blogList
 
     fun addBlogList(blog : List<Blog>) {
-        Log.d("TEST4",blog.toString())
         _blogList.value = blog
-        Log.d("TEST2",_blogList.value.toString())
-        Log.d("TEST3",blogList.toString())
     }
 }

@@ -1,31 +1,31 @@
 package com.example.demu_android.feature.Blog
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.demu_android.R
 import com.example.demu_android.databinding.FragmentWriteBlogBinding
 import com.example.demu_android.databinding.ListBottomSheetItemBinding
 import com.example.demu_android.feature.home.HomeFragment
-import com.example.demu_android.feature.recycler.home.WriteBlog.data.Blog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
+
 class WriteBlogFragment : Fragment(), View.OnClickListener {
-    private val blogList: MutableList<Blog> = mutableListOf(
-        // Blog(1092L, "", "", "", 12092L, Enum<Tier.GRADE, "">)
-    )
     private val binding by lazy {
         FragmentWriteBlogBinding.inflate(layoutInflater)
     }
@@ -35,19 +35,31 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     private val bottomSheetDialog by lazy {
         BottomSheetDialog(requireContext())
     }
+    private val imageItem: MutableList<String> = mutableListOf()
 
     private val pickMultiMedia = registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
-        if (uris.isNotEmpty()) {
+        if (imageItem.size >= 5) {
+            Toast.makeText(requireContext(), "최대 갯수입니다", Toast.LENGTH_SHORT).show()
+        } else if(uris.isNotEmpty() ) {
             Log.d("TEST", "Number of items selected: ${uris.size}")
-            loadImage(uris[0])
+            binding.tvWriteBlogSelectedImg.text = "${imageItem.size+1}/5"
+            val adapter: ArrayAdapter<String> =
+                ArrayAdapter<String>(requireContext(), R.layout.photo_image_item, R.id.tv_image, imageItem)
+            uris.forEach {
+                imageItem.add(it.toString())
+            }
+            binding.ivImg.adapter = adapter
         } else {
             Log.d("PhotoPicker", "No media selected")
         }
 
     }
 
-    private lateinit var listView: ListView
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
+    }
+    
     private var titleFlag = false
     private var subFlag = false
     override fun onCreateView(
@@ -60,6 +72,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding.imgDownArrow.setOnClickListener(this)
         binding.tvSubmit.setOnClickListener(this)
         binding.tvCancel.setOnClickListener(this)
@@ -69,6 +82,7 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
                 pickMultiMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
             }
         }
+
 
         showDropDownMenu()
         onTitleListener()
@@ -259,9 +273,5 @@ class WriteBlogFragment : Fragment(), View.OnClickListener {
         return titleFlag && subFlag
     }
 
-    private fun loadImage(uri: Uri) {
-        Glide.with(requireContext())
-            .load(uri)
-            .into(binding.imgAddImg)
-    }
+
 }

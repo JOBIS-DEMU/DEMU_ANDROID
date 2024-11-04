@@ -60,6 +60,7 @@
                 android:background="@color/back_white"
                 android:textColor="@color/text_default"
                 android:paddingStart="0dp"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="example" />
@@ -110,6 +111,7 @@
                 android:background="@color/back_white"
                 android:hint="8자 이상의 비밀번호를 입력해주세요"
                 android:paddingStart="0dp"
+                android:maxLines="1"
                 android:gravity="top|start"/>
 
         </com.google.android.material.textfield.TextInputLayout>
